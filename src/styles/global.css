@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root, .root, #root, #docs-root {
+    --select-color: #FB2576;
+}
+
+section {
+    @apply bg-Spurple
+    transition-all
+    border border-transparent rounded-lg
+    hover:border-select-color
+}

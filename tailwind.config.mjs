@@ -4,8 +4,11 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				"dark-blue": "#1B263B",
-				"dark-gray": "#2C2C2C"
+				"Spurple": "#3F0071",
+				"Spink": "#FB2576",
+				"Sblue": "#332FD0",
+				"Snavy": "#0002A1",
+				"select-color": "var(--select-color)"
 			}
 		}
 	},

@@ -1,13 +1,20 @@
 ---
 import Layout from "../Layouts/Layout.astro";
-import "../styles/cards.css";
+import IconBtn from "../components/IconBtn.astro";
+
+const socialsLinks:string[] = ["GitHub"		,"LinkedIn"				,"Reddit"		,"Discord"];
+const socialsIcons:string[] = ["bxl:github"	,"bxl:linkedin-square"	,"bxl:reddit"	,"bxl:discord"];
 ---
 
 <Layout title="Vicente Javier Viera Guízar">
-	<section 
-		id="About" 
-		class="">
-		owo
+	<section id="About" class="min-h-60 p-6 flex flex-col gap-5 justify-between sm:col-span-3 md:min-h-80">
+		<div id="Presentation">
+			<small class="text-xs">Welcome :D</small>
+			<p class="text-xl">Hi! I am <b>Vicente Javier Viera Guízar</b>, a software developer with strong focus in Computer Graphics and software efficiency.</p>
+		</div>
+		<div id="Contact" class="w-fit flex flex-wrap gap-4">
+			{ socialsLinks.map((link: string, index: number) => <IconBtn name={ socialsIcons[index] } title={ link } size={ 36 }/>) }
+		</div>
 	</section>
 	<section class="">
 		owo
@@ -34,3 +41,20 @@ import "../styles/cards.css";
 		owo
 	</section>
 </Layout>
+
+<script>
+	const socialLinks: string[] = [
+		"https://github.com/VicenteVieraG",
+		"https://www.linkedin.com/in/vicentejvg",
+		"https://www.reddit.com/user/plantedcoot706/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button",
+		"http://discordapp.com/users/505541264238968832"
+	];
+	const contacts: HTMLCollection = document.getElementById("Contact")?.children as HTMLCollection;
+	
+	socialLinks.map((link: string, index: number) => contacts[index].addEventListener("click", () => window.location.href = link));
+</script>
+
+<!-- 
+Icons by
+https://github.com/atisawd/boxicons
+-->

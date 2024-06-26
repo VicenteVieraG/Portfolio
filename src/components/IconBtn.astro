@@ -1,0 +1,35 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    name: string;
+    title: string;
+    size?: number;
+    width?: number;
+    height?: number;
+}
+
+const { name, title, size, width, height } = Astro.props;
+---
+
+<button
+    id={ title }
+    class="
+        group
+        size-14
+        border-2 border-select-color rounded-lg
+        shadow-[3px_3px_0px_0px] shadow-select-color
+        transition ease-in-out duration-200
+        active:shadow-none active:translate-x-1 active:translate-y-1">
+    <Icon
+        name={ name }
+        title={ title }
+        size={ size }
+        width={ width }
+        height={ height }
+        class="text-white                         \
+            m-auto                                  \
+            transition ease-in-out duration-200     \
+            group-hover:scale-110                   \
+            group-hover:text-select-color"/>
+</button>
