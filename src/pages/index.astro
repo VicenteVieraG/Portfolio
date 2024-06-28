@@ -1,6 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../Layouts/Layout.astro";
 import IconBtn from "../components/IconBtn.astro";
+
+import MeIcon from "../assets/MeIcon.webp";
 
 const socialsLinks: string[] = ["GitHub", "LinkedIn", "Reddit", "Discord"];
 const socialsIcons: string[] = [
@@ -14,7 +17,7 @@ const socialsIcons: string[] = [
 <Layout title="Vicente Javier Viera Guízar">
     <section
         id="About"
-        class="min-h-60 p-6 flex flex-col gap-5 justify-between sm:col-span-3 md:min-h-80">
+        class="min-h-60 p-6 overflow-hidden grid place-content-between gap-5 relative sm:col-span-3 sm:grid-cols-2 md:min-h-80">
         <div id="Presentation">
             <small class="text-xs">Welcome :D</small>
             <p class="text-xl">
@@ -23,7 +26,7 @@ const socialsIcons: string[] = [
                 efficiency.
             </p>
         </div>
-        <div id="Contact" class="w-fit flex flex-wrap gap-4">
+        <div id="Contact" class="w-fit flex flex-wrap gap-4 order-last self-end z-10">
             {
                 socialsLinks.map((link: string, index: number) => (
                     <IconBtn
@@ -34,6 +37,14 @@ const socialsIcons: string[] = [
                 ))
             }
         </div>
+        <Image
+            src={ MeIcon }
+            alt="Me in IPhon Style portrait"
+            format="webp"
+            quality="max"
+            width=300
+            height=300
+            class="absolute right-[-110px] bottom-[-20px] opacity-50 sm:opacity-100 sm:static sm:row-span-2"/>
     </section>
     <section class="">owo</section>
     <section class="">owo</section>
