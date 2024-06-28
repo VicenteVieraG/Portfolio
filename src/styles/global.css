@@ -20,7 +20,22 @@ section {
 ul li {
     @apply font-bold;
 }
+ul li a {
+    @apply font-normal
+    transition duration-200 ease-in-out
+    relative
+    hover:text-select-color
+    before:bg-select-color
+    before:w-full before:h-px
+    before:absolute before:bottom-0 before:scale-x-0
+    before:transition before:duration-200 before:ease-in-out
+    before:hover:scale-x-100
+}
 
 h1 {
     @apply text-xl font-bold;
+}
+
+small {
+    @apply text-xs opacity-60;
 }
