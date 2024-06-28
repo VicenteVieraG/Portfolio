@@ -15,10 +15,10 @@ const socialsIcons: string[] = [
 ---
 
 <Layout title="Vicente Javier Viera Guízar">
+    <!-- Presentation -->
     <section
-        id="About"
-        class="min-h-60 p-6 overflow-hidden grid place-content-between gap-5 relative sm:col-span-3 sm:grid-cols-2 md:min-h-80">
-        <div id="Presentation">
+        class="min-h-60 overflow-hidden grid place-content-between gap-5 relative z-0 sm:col-span-3 sm:grid-cols-2 md:min-h-80">
+        <div>
             <small class="text-xs">Welcome :D</small>
             <p class="text-xl">
                 Hi! I am <b>Vicente Javier Viera Guízar</b>, a software
@@ -26,7 +26,9 @@ const socialsIcons: string[] = [
                 efficiency.
             </p>
         </div>
-        <div id="Contact" class="w-fit flex flex-wrap gap-4 order-last self-end z-10">
+        <div
+            id="Contact"
+            class="w-fit flex flex-wrap gap-4 order-last self-end">
             {
                 socialsLinks.map((link: string, index: number) => (
                     <IconBtn
@@ -38,22 +40,50 @@ const socialsIcons: string[] = [
             }
         </div>
         <Image
-            src={ MeIcon }
+            src={MeIcon}
             alt="Me in IPhon Style portrait"
             format="webp"
             quality="max"
-            width=300
-            height=300
-            class="absolute right-[-110px] bottom-[-20px] opacity-50 sm:opacity-100 sm:static sm:row-span-2"/>
+            width="300"
+            height="300"
+            class="absolute right-[-110px] bottom-[-20px] opacity-50 -z-10 sm:opacity-100 sm:static sm:justify-self-center sm:row-span-2"
+        />
     </section>
-    <section class="">owo</section>
-    <section class="">owo</section>
-    <section class="">owo</section>
-    <section class="">owo</section>
-    <section class="">owo</section>
-    <section class="">owo</section>
-    <section class="">owo</section>
-    <section class="">owo</section>
+    <!-- About Me -->
+    <section class="flex flex-col justify-around gap-1 sm:row-span-4">
+        <h1 class="text-xl font-bold">About me</h1>
+        <p>
+            Hi! I am Vicente, a front-end and computer graphics ingeneer from
+            México.<br />My primary technologies include:
+        </p>
+        <ul role="list" class="list-disc list-inside marker:text-select-color">
+            <li>TypeScript/JavaScript</li>
+            <li>Tailwind</li>
+            <li>Astro</li>
+            <li>Node.js</li>
+            <li>C++</li>
+            <li>CMake</li>
+        </ul>
+        <p>
+            Beyond coding I am passionate about playing piano, videogames, manga
+            and reading about philosophy.
+        </p>
+        <p>
+            While I have some preferred tools, I always choose the best one for
+            the job, even if it's not on my usual list. My goal is to find the
+            right solution for each project always focusing in efficiency.
+        </p>
+    </section>
+    <!-- Let's Start Working Together -->
+    <section class="">
+        <h1>Let's start working together!</h1>
+    </section>
+    <section class="">owo4</section>
+    <section class="">owo5</section>
+    <section class="">owo6</section>
+    <section class="">owo7</section>
+    <section class="">owo8</section>
+    <section class="">owo9</section>
 </Layout>
 
 <script>
