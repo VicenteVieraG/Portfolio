@@ -5,12 +5,38 @@ import IconBtn from "../components/IconBtn.astro";
 
 import MeIcon from "../assets/MeIcon.webp";
 
-const socialsLinks: string[] = ["GitHub", "LinkedIn", "Reddit", "Discord"];
-const socialsIcons: string[] = [
-    "bxl:github",
-    "bxl:linkedin-square",
-    "bxl:reddit",
-    "bxl:discord"
+type Social = "GitHub"
+    | "LinkedIn"
+    | "Reddit"
+    | "Discord"
+    | "Stackoverflow"
+    ;
+type SocialIcon = {
+    name: Social;
+    icon: "bxl:github"
+        | "bxl:linkedin-square"
+        | "bxl:reddit"
+        | "bxl:discord"
+        ;
+}
+type SocialLink = {
+    name: Social;
+    url: "https://github.com/VicenteVieraG"
+        | "https://www.linkedin.com/in/vicentejvg"
+        | "https://stackoverflow.com/users/13344376/plantedcoot706"
+        ;
+};
+
+const socialsIcons: ReadonlyArray<SocialIcon> = [
+    {name: "GitHub",    icon: "bxl:github"},
+    {name: "LinkedIn",  icon: "bxl:linkedin-square"},
+    {name: "Reddit",    icon: "bxl:reddit"},
+    {name: "Discord",   icon: "bxl:discord"}
+];
+const socialsURL: ReadonlyArray<SocialLink> = [
+    {name: "GitHub",        url: "https://github.com/VicenteVieraG"},
+    {name: "LinkedIn",      url: "https://www.linkedin.com/in/vicentejvg"},
+    {name: "Stackoverflow", url: "https://stackoverflow.com/users/13344376/plantedcoot706"}
 ];
 ---
 
@@ -29,15 +55,7 @@ const socialsIcons: string[] = [
         <div
             id="Contact"
             class="w-fit flex flex-wrap gap-4 order-last self-end">
-            {
-                socialsLinks.map((link: string, index: number) => (
-                    <IconBtn
-                        name={socialsIcons[index]}
-                        title={link}
-                        size={36}
-                    />
-                ))
-            }
+                {socialsIcons.map(social => <IconBtn name={social.icon} title={social.name} size={36}/>)}
         </div>
         <Image
             src={MeIcon}
@@ -50,7 +68,8 @@ const socialsIcons: string[] = [
         />
     </section>
     <!-- About Me -->
-    <section class="text-sm flex flex-col justify-around gap-2 sm:text-base sm:row-span-2">
+    <section
+        class="text-sm flex flex-col justify-around gap-2 sm:text-base sm:row-span-2">
         <h1>About me</h1>
         <p>
             Hi! I am Vicente, a front-end and computer graphics ingeneer from
@@ -80,14 +99,12 @@ const socialsIcons: string[] = [
         <div>
             <small>Contact details</small>
             <p>vicentejvg@outlook.com</p>
-            <i>México</i><br/>
+            <i>México</i><br />
         </div>
         <div>
             <small>Socials</small>
             <ul>
-                <li><a href="https://github.com/VicenteVieraG">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/vicentejvg">LinkedIn</a></li>
-                <li><a href="https://stackoverflow.com/users/13344376/plantedcoot706">stackoverflow</a></li>
+                {socialsURL.map(social => <li><a href={social.url}>{social.name}</a></li>)}
             </ul>
         </div>
     </section>

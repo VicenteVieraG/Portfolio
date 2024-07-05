@@ -29,7 +29,7 @@ ul li a {
     before:w-full before:h-px
     before:absolute before:bottom-0 before:scale-x-0
     before:transition before:duration-200 before:ease-in-out
-    before:hover:scale-x-100
+    before:hover:scale-x-100;
 }
 
 h1 {
