@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Layout from "../Layouts/Layout.astro";
 import IconBtn from "../components/IconBtn.astro";
+import Globe from "../components/Globe.astro";
 
 import MeIcon from "../assets/MeIcon.webp";
 
@@ -108,7 +109,9 @@ const socialsURL: ReadonlyArray<SocialLink> = [
             </ul>
         </div>
     </section>
-    <section class="">owo4</section>
+    <section class="">
+        <Globe />
+    </section>
     <section class="">owo5</section>
     <section class="">owo6</section>
     <section class="">owo7</section>
@@ -117,7 +120,7 @@ const socialsURL: ReadonlyArray<SocialLink> = [
 </Layout>
 
 <script>
-    const socialLinks: string[] = [
+    const socialLinks: ReadonlyArray<string> = [
         "https://github.com/VicenteVieraG",
         "https://www.linkedin.com/in/vicentejvg",
         "https://www.reddit.com/user/plantedcoot706/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button",
