@@ -1,5 +1,5 @@
 ---
-import GlobeView from "../components/Globe.astro";
+import Globe from "../components/Globe.svelte";
 import "../styles/background.css";
 ---
 
@@ -13,7 +13,7 @@ import "../styles/background.css";
     </head>
     <body class="magicpattern min-w-full min-h-dvh sm:h-auto">
         <main class="size-full">
-            <GlobeView/>
+            <Globe client:load />
         </main>
     </body>
 </html>
