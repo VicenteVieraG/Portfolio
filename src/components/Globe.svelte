@@ -46,7 +46,7 @@
             .select(mapContainer)
             .append("svg")
             .attr("width", width)
-            .attr("height", height)
+            .attr("height", height);
         svg
             .append("circle")
             .attr("fill", "#EEE")
@@ -71,6 +71,19 @@
             .style("stroke", "black")
             .style("stroke-width", 0.3)
             .style("opacity", 0.8);
+
+        // Drag behavior
+        const drag = d3.drag<SVGGElement, unknown>()
+            .on("drag", event => {
+                const rotate: Readonly<[number, number, number]> = projection.rotate();
+                const k: Readonly<number> = sensitivity / projection.scale();
+                projection.rotate([
+                    rotate[0] + event.dx * k,
+                    rotate[1] - event.dy * k
+                ]);
+                svg.selectAll("path").attr("d", d => pathGenerator(d as any));
+            });
+        map.call(drag);
 
         d3.timer((): void => {
             const rotate: Readonly<[number, number, number]> = projection.rotate();
