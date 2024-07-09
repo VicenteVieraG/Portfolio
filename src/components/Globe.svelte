@@ -4,6 +4,9 @@
     import { features } from "../globeData/world.json";
 
     import type { GeoProjection, GeoPath } from "d3";
+
+    // Props
+    export let inCard: boolean = true;
     
     // Inicialization map container
     let mapContainer: HTMLDivElement | undefined = undefined;
@@ -66,7 +69,7 @@
             .append("path")
             .attr("d", d => pathGenerator(d as any))
             .attr("fill", (d: { properties: { name: string } }) =>
-                visitedCountries.includes(d.properties.name) ? "#E63946" : "white"
+                visitedCountries.includes(d.properties.name) ? "#fb2576" : "white"
             )
             .style("stroke", "black")
             .style("stroke-width", 0.3)
@@ -94,4 +97,14 @@
     });
 </script>
 
-<div class="size-full m-auto" bind:this={mapContainer}></div>
+<div
+    id="mapContainer"
+    class:inCard={inCard}
+    bind:this={mapContainer}>
+</div>
+
+<style>
+    .inCard {
+        @apply size-full rounded-lg basis-1/3 grow-0 shrink overflow-hidden absolute inset-0;
+    }
+</style>

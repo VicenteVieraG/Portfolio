@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import Layout from "../Layouts/Layout.astro";
 import IconBtn from "../components/IconBtn.astro";
+import Globe from "../components/Globe.svelte";
 
 import MeIcon from "../assets/MeIcon.webp";
 
@@ -108,13 +110,26 @@ const socialsURL: ReadonlyArray<SocialLink> = [
             </ul>
         </div>
     </section>
-    <section class="">
+    <section class="">Time Zone</section>
+    <section class="">Now</section>
+    <section class="">Playground</section>
+    <!-- Globe map -->
+    <section class="relative p-12">
+        <a class="size-full flex justify-between items-center absolute inset-0" href="globeView">
+            <h2 class="text-black text-lg font-semibold relative z-10">Countries I have visited</h2>
+            <Icon class="text-select-color relative z-10" name="ri:arrow-right-up-line" size={16}/>
+            <Globe inCard client:visible />
+        </a>
+        <!-- <a class="size-full absolute inset-0" href="/globeView/">
+            <h2 class="text-black text-lg font-semibold relative z-10">Countries I have visited</h2>
+            <div class="basis-1/2 flex flex-col justify-center relative sm:basis-2/3 md:basis-full">
+                <h2 class="text-black text-lg font-semibold text-center relative z-10">Countries I have visited</h2>
+                <Globe client:visible />
+            </div>
+        </a> -->
     </section>
-    <section class="">owo5</section>
-    <section class="">owo6</section>
-    <section class="">owo7</section>
-    <section class="">owo8</section>
-    <section class="">owo9</section>
+    <section class="">colors</section>
+    <section class="">credits</section>
 </Layout>
 
 <script>

@@ -39,3 +39,7 @@ h1 {
 small {
     @apply text-xs opacity-60;
 }
+
+#mapContainer svg {
+    @apply -translate-y-40
+}
