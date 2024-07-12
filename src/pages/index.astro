@@ -20,7 +20,7 @@ type SocialIcon = {
         | "bxl:reddit"
         | "bxl:discord"
         ;
-}
+};
 type SocialLink = {
     name: Social;
     url: "https://github.com/VicenteVieraG"
@@ -114,19 +114,20 @@ const socialsURL: ReadonlyArray<SocialLink> = [
     <section class="">Now</section>
     <section class="">Playground</section>
     <!-- Globe map -->
-    <section class="relative p-12">
-        <a class="size-full flex justify-between items-center absolute inset-0" href="globeView">
-            <h2 class="text-black text-lg font-semibold relative z-10">Countries I have visited</h2>
-            <Icon class="text-select-color relative z-10" name="ri:arrow-right-up-line" size={16}/>
+    <section class="group relative p-12">
+        <a class="size-full px-3 flex justify-between absolute inset-0 overflow-hidden" href="globeView">
+            <h2 class="text-black text-lg font-semibold my-auto relative z-10">Countries I have visited</h2>
+            <Icon
+                class= `                                \
+                    text-Spurple my-auto relative       \
+                    transition ease-out duration-100    \
+                    z-10                                \
+                    group-hover:text-select-color group-hover:translate-x-2 group-hover:-translate-y-1`
+                name="ri:arrow-right-up-line"
+                size={16}
+            />
             <Globe inCard client:visible />
         </a>
-        <!-- <a class="size-full absolute inset-0" href="/globeView/">
-            <h2 class="text-black text-lg font-semibold relative z-10">Countries I have visited</h2>
-            <div class="basis-1/2 flex flex-col justify-center relative sm:basis-2/3 md:basis-full">
-                <h2 class="text-black text-lg font-semibold text-center relative z-10">Countries I have visited</h2>
-                <Globe client:visible />
-            </div>
-        </a> -->
     </section>
     <section class="">colors</section>
     <section class="">credits</section>

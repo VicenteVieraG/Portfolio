@@ -6,7 +6,7 @@
     import type { GeoProjection, GeoPath } from "d3";
 
     // Props
-    export let inCard: boolean = true;
+    export let inCard: boolean;
     
     // Inicialization map container
     let mapContainer: HTMLDivElement | undefined = undefined;
@@ -49,7 +49,8 @@
             .select(mapContainer)
             .append("svg")
             .attr("width", width)
-            .attr("height", height);
+            .attr("height", height)
+            .attr("class", "")
         svg
             .append("circle")
             .attr("fill", "#EEE")
@@ -99,12 +100,10 @@
 
 <div
     id="mapContainer"
-    class:inCard={inCard}
+    class={inCard ? 
+        "w-full max-w-md rounded-xl absolute inset-0 overflow-hidden"
+        :
+        ""
+    }
     bind:this={mapContainer}>
 </div>
-
-<style>
-    .inCard {
-        @apply size-full rounded-lg basis-1/3 grow-0 shrink overflow-hidden absolute inset-0;
-    }
-</style>
