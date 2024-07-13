@@ -1,11 +1,17 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+
 import Layout from "../Layouts/Layout.astro";
 import IconBtn from "../components/IconBtn.astro";
+import ColorBtn from "../components/ColorBtn.astro";
 import Globe from "../components/Globe.svelte";
 
 import MeIcon from "../assets/MeIcon.webp";
+
+import type { ComponentProps } from "astro/types";
+
+type Color = ComponentProps<typeof ColorBtn>["color"];
 
 type Social = "GitHub"
     | "LinkedIn"
@@ -39,6 +45,14 @@ const socialsURL: ReadonlyArray<SocialLink> = [
     {name: "GitHub",        url: "https://github.com/VicenteVieraG"},
     {name: "LinkedIn",      url: "https://www.linkedin.com/in/vicentejvg"},
     {name: "Stackoverflow", url: "https://stackoverflow.com/users/13344376/plantedcoot706"}
+];
+
+const colors: ReadonlyArray<Color> = [
+    "pink",
+    "blue",
+    "navy",
+    "green",
+    "yellow"
 ];
 ---
 
@@ -129,11 +143,18 @@ const socialsURL: ReadonlyArray<SocialLink> = [
             <Globe inCard client:visible />
         </a>
     </section>
-    <section class="">colors</section>
-    <section class="">credits</section>
+    <!-- Color buttons -->
+    <section id="Colors" class="flex flex-wrap justify-around items-center">
+        { colors.map(color => <ColorBtn color={color}/>) }
+    </section>
+    <!-- Credits -->
+    <section class="">
+        <small>Crafted with love using Astro</small>
+    </section>
 </Layout>
 
 <script>
+    // Socials setup
     const socialLinks: ReadonlyArray<string> = [
         "https://github.com/VicenteVieraG",
         "https://www.linkedin.com/in/vicentejvg",
@@ -146,12 +167,34 @@ const socialsURL: ReadonlyArray<SocialLink> = [
     socialLinks.map((link: string, index: number) =>
         contacts[index].addEventListener(
             "click",
-            () => (window.location.href = link)
+            () => window.location.href = link
         )
     );
+
+    // Colors setup
+    type Color = "pink"
+        | "blue"
+        | "navy"
+        | "green"
+        | "yellow"
+        ;
+    const colorMap: ReadonlyMap<Color, string> = new Map([
+        ["pink", "#FB2576"],
+        ["blue", "#332FD0"],
+        ["navy", "#0002A1"],
+        ["green", "#22c55e"],
+        ["yellow", "#eab308"]
+    ]);
+    
+    const colorBtns = document.getElementsByName("ColorBtn");
+    colorBtns.forEach(element => element.addEventListener(
+        "click",
+        () => document.documentElement.style.setProperty(
+            "--select-color",
+            colorMap.get(element.dataset.color as Color) as string
+        )
+    ));
 </script>
 
-<!-- 
-Icons by
-https://github.com/atisawd/boxicons
--->
+<!-- Icons by
+https://github.com/atisawd/boxicons -->

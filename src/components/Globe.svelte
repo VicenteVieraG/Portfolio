@@ -50,7 +50,6 @@
             .append("svg")
             .attr("width", width)
             .attr("height", height)
-            .attr("class", "")
         svg
             .append("circle")
             .attr("fill", "#EEE")

@@ -1,0 +1,33 @@
+---
+interface Props {
+    color: "pink"
+        | "blue"
+        | "navy"
+        | "green"
+        | "yellow"
+        ;
+};
+
+type Color = Props["color"];
+
+const { color } = Astro.props;
+const colorsMap: ReadonlyMap<Color, string> = new Map([
+    ["pink", "bg-Spink"],
+    ["blue", "bg-Sblue"],
+    ["navy", "bg-Snavy"],
+    ["green", "bg-green-500"],
+    ["yellow", "bg-yellow-500"]
+]);
+---
+
+<button
+    name="ColorBtn"
+    data-color={ color }
+    class:list={[
+        colorsMap.get(color),
+        "size-12",
+        "rounded-full",
+        "transition ease-out duration-200",
+        "hover:scale-110"
+    ]}>
+</button>
