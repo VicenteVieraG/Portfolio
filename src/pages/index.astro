@@ -160,8 +160,14 @@ const colors: ReadonlyArray<Color> = [
         { colors.map(color => <ColorBtn color={color}/>) }
     </section>
     <!-- Credits -->
-    <section class="">
-        <small>Crafted with love using Astro</small>
+    <section class="group flex flex-wrap items-center gap-1">
+        <small>Crafted with</small>
+        <Icon name="mdi:heart" size={12} class:list={[
+            "text-white",
+            "transition-all duration-150 ease-in-out",
+            "group-hover:text-select-color"
+        ]}/>
+        <small>using Astro</small>
     </section>
 </Layout>
 
