@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 import Layout from "../Layouts/Layout.astro";
 import IconBtn from "../components/IconBtn.astro";
 import ColorBtn from "../components/ColorBtn.astro";
+import Clock from "../components/Clock.astro";
 import Globe from "../components/Globe.svelte";
 
 import MeIcon from "../assets/MeIcon.webp";
@@ -89,7 +90,7 @@ const colors: ReadonlyArray<Color> = [
         <h1>About me</h1>
         <p>
             Hi! I am Vicente, a front-end and computer graphics ingeneer from
-            México.<br />My primary technologies include:
+            México.<br />My main technologies include:
         </p>
         <ul role="list" class="list-disc list-inside marker:text-select-color">
             <li>TypeScript/JavaScript</li>
@@ -124,7 +125,10 @@ const colors: ReadonlyArray<Color> = [
             </ul>
         </div>
     </section>
-    <section class="">Time Zone</section>
+    <!-- Clock -->
+    <section class="">
+        <Clock/>
+    </section>
     <section class="">Now</section>
     <section class="">Playground</section>
     <!-- Globe map -->
@@ -132,11 +136,13 @@ const colors: ReadonlyArray<Color> = [
         <a class="size-full px-3 flex justify-between absolute inset-0 overflow-hidden" href="globeView">
             <h2 class="text-black text-lg font-semibold my-auto relative z-10">Countries I have visited</h2>
             <Icon
-                class= `                                \
-                    text-Spurple my-auto relative       \
-                    transition ease-out duration-100    \
-                    z-10                                \
-                    group-hover:text-select-color group-hover:translate-x-2 group-hover:-translate-y-1`
+                class:list={[
+                        "text-Spurple my-auto relative",
+                        "transition ease-out duration-100",
+                        "transition ease-out duration-100",
+                        "z-10",
+                        "group-hover:text-select-color group-hover:translate-x-2 group-hover:-translate-y-1"
+                    ]}
                 name="ri:arrow-right-up-line"
                 size={16}
             />

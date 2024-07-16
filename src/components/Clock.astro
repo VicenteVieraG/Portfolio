@@ -1,0 +1,34 @@
+<b class="text-base">Time Zone</b>
+<p id="Clock" class="size-full text-2xl font-serif tracking-tight md:text-5xl"/>
+
+<script>
+    const clockDiv: HTMLParagraphElement = document.getElementById("Clock") as HTMLParagraphElement;
+
+    const updateClock = (clock: HTMLParagraphElement): void => {
+        try{
+            if(!clock) throw new Error("Error in Clock.astro. No #Clock p element found");
+
+            const now: Readonly<Date> = new Date();
+            const formatter = new Intl.DateTimeFormat(
+                "es-MX",
+                {
+                    timeZone: "America/Mexico_City",
+                    hour: "numeric",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: true
+                }
+            );
+            const timeString: string = formatter.format(now);
+            
+            clock.innerText = timeString + " UTC-6, " + "Mexico";
+        }catch(error){
+            console.log(error);
+            return;
+        }
+    };
+
+    updateClock(clockDiv);
+
+    setInterval((): void => updateClock(clockDiv), 1000);
+</script>
