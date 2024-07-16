@@ -126,11 +126,17 @@ const colors: ReadonlyArray<Color> = [
         </div>
     </section>
     <!-- Clock -->
-    <section class="">
+    <section>
         <Clock/>
     </section>
-    <section class="">Now</section>
-    <section class="">Playground</section>
+    <!-- Now -->
+    <section class="relative">
+        <h2 class="text-lg font-semibold">Now</h2>
+        <p class="text-sm">Open for work</p>
+        <span class="size-3 m-3 rounded-full bg-select-color absolute top-0 right-0 animate-ping"/>
+    </section>
+    <!-- Playground -->
+    <section><b>Playground</b> Coming soon...</section>
     <!-- Globe map -->
     <section class="group relative p-12">
         <a class="size-full px-3 flex justify-between absolute inset-0 overflow-hidden" href="globeView">
