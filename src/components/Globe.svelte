@@ -100,7 +100,7 @@
 <div
     id="mapContainer"
     class={inCard ? 
-        "w-full max-w-md rounded-xl absolute inset-0 overflow-hidden"
+        "size-full max-w-md rounded-xl absolute inset-0 overflow-hidden"
         :
         ""
     }

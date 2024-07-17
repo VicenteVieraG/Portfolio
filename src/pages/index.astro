@@ -60,7 +60,12 @@ const colors: ReadonlyArray<Color> = [
 <Layout title="Vicente Javier Viera Guízar">
     <!-- Presentation -->
     <section
-        class="min-h-60 overflow-hidden grid place-content-between gap-5 relative z-0 sm:col-span-3 sm:grid-cols-2 md:min-h-80">
+        class="min-h-60 overflow-hidden
+            grid place-content-between gap-5
+            relative z-0
+            sm:col-span-3 sm:grid-cols-2 md:min-h-80
+            md:col-span-full
+            lg:col-span-3 lg:row-span-4">
         <div>
             <small>Welcome :D</small>
             <p class="text-xl">
@@ -86,7 +91,11 @@ const colors: ReadonlyArray<Color> = [
     </section>
     <!-- About Me -->
     <section
-        class="text-sm flex flex-col justify-around gap-2 sm:text-base sm:row-span-2">
+        class="text-sm flex flex-col justify-around gap-2
+            sm:text-base sm:row-span-4
+            md:row-span-4
+            lg:row-span-6
+            lg:text-sm">
         <h1>About me</h1>
         <p>
             Hi! I am Vicente, a front-end and computer graphics ingeneer from
@@ -111,7 +120,7 @@ const colors: ReadonlyArray<Color> = [
         </p>
     </section>
     <!-- Let's Start Working Together -->
-    <section class="flex flex-col justify-between gap-4">
+    <section class="flex flex-col justify-between gap-4 sm:row-span-2 lg:row-span-4">
         <div><h1>Let's start working together!</h1></div>
         <div>
             <small>Contact details</small>
@@ -126,11 +135,11 @@ const colors: ReadonlyArray<Color> = [
         </div>
     </section>
     <!-- Clock -->
-    <section>
+    <section class="md:col-span-2 lg:row-span-2">
         <Clock/>
     </section>
     <!-- Now -->
-    <section class="relative">
+    <section class="relative md:col-span-2 lg:col-span-1 lg:row-span-2">
         <h2 class="text-lg font-semibold">Now</h2>
         <p class="text-sm">Open for work</p>
         <span class="size-3 m-3 rounded-full bg-select-color absolute top-0 right-0 animate-ping"/>
@@ -138,7 +147,7 @@ const colors: ReadonlyArray<Color> = [
     <!-- Playground -->
     <section><b>Playground</b> Coming soon...</section>
     <!-- Globe map -->
-    <section class="group relative p-12">
+    <section class="group relative p-12 md:col-span-2 lg:col-span-1 sm:p-0">
         <a class="size-full px-3 flex justify-between absolute inset-0 overflow-hidden" href="globeView">
             <h2 class="text-black text-lg font-semibold my-auto relative z-10">Countries I have visited</h2>
             <Icon
@@ -160,7 +169,7 @@ const colors: ReadonlyArray<Color> = [
         { colors.map(color => <ColorBtn color={color}/>) }
     </section>
     <!-- Credits -->
-    <section class="group flex flex-wrap items-center gap-1">
+    <section class="group flex flex-wrap items-center gap-1 md:col-span-2 lg:col-span-1">
         <small>Crafted with</small>
         <Icon name="mdi:heart" size={12} class:list={[
             "text-white",
@@ -215,4 +224,6 @@ const colors: ReadonlyArray<Color> = [
 </script>
 
 <!-- Icons by
-https://github.com/atisawd/boxicons -->
+https://github.com/atisawd/boxicons
+https://github.com/iconify
+-->
